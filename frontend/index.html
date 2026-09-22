@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Trichy Estates - Premium apartments, houses and flats across Tiruchirappalli." />
+  <title>Trichy Estates | Find Your Perfect Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Authentication Screen -->
+  <section class="auth-screen" id="authScreen">
+    <div class="auth-visual">
+      <div class="auth-overlay"></div>
+      <div class="brand auth-brand">
+        <div class="brand-mark">TE</div>
+        <div>
+          <strong>Trichy Estates</strong>
+          <span>Premium Real Estate</span>
+        </div>
+      </div>
+
+      <div class="auth-copy">
+        <span class="eyebrow light">TRICHY • TAMIL NADU</span>
+        <h1>Find a place that feels like home.</h1>
+        <p>Discover carefully selected apartments, houses and flats in the best neighborhoods of Tiruchirappalli.</p>
+        <div class="trust-row">
+          <div><b>30+</b><span>Curated properties</span></div>
+          <div><b>3</b><span>Property categories</span></div>
+          <div><b>24/7</b><span>Buyer support</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="auth-panel">
+      <div class="auth-form-wrap">
+        <div class="mobile-brand brand">
+          <div class="brand-mark">TE</div>
+          <div>
+            <strong>Trichy Estates</strong>
+            <span>Premium Real Estate</span>
+          </div>
+        </div>
+
+        <span class="eyebrow" id="authEyebrow">WELCOME BACK</span>
+        <h2 id="authTitle">Sign in to continue</h2>
+        <p class="muted" id="authSubtitle">Enter your details to explore premium properties in Trichy.</p>
+
+        <form id="loginForm" novalidate>
+          <label id="nameField" class="hidden">
+            Full name
+            <div class="input-wrap">
+              <span class="input-icon">☺</span>
+              <input id="fullName" type="text" maxlength="100" placeholder="Your name" autocomplete="name" />
+            </div>
+            <small class="error" id="nameError"></small>
+          </label>
+
+          <label>
+            Email address
+            <div class="input-wrap">
+              <span class="input-icon">✉</span>
+              <input id="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+            </div>
+            <small class="error" id="emailError"></small>
+          </label>
+
+          <label id="mobileField" class="hidden">
+            Mobile number
+            <div class="input-wrap">
+              <span class="input-icon">☎</span>
+              <span class="prefix">+91</span>
+              <input id="mobile" type="tel" inputmode="numeric" maxlength="10" placeholder="9876543210" autocomplete="tel" required />
+            </div>
+            <small class="error" id="mobileError"></small>
+          </label>
+
+          <label>
+            Password
+            <div class="input-wrap">
+              <span class="input-icon">●</span>
+              <input id="password" type="password" minlength="6" placeholder="Minimum 6 characters" autocomplete="current-password" required />
+              <button class="icon-btn" type="button" id="togglePassword" aria-label="Show password">Show</button>
+            </div>
+            <small class="error" id="passwordError"></small>
+          </label>
+
+          <div class="login-meta" id="loginMeta">
+            <label class="remember">
+              <input type="checkbox" id="rememberMe" />
+              <span>Remember me</span>
+            </label>
+            <button type="button" class="text-btn" id="forgotPassword">Forgot password?</button>
+          </div>
+
+          <button type="submit" class="primary-btn auth-btn" id="authSubmit">
+            <span id="authSubmitLabel">Sign in & explore homes</span>
+            <span>→</span>
+          </button>
+
+          <p class="auth-note">Your password is sent securely to the server and stored only as a hash.</p>
+        </form>
+
+        <form id="resetForm" class="hidden" novalidate>
+          <label>
+            New password
+            <div class="input-wrap">
+              <span class="input-icon">●</span>
+              <input id="newPassword" type="password" minlength="6" placeholder="Minimum 6 characters" autocomplete="new-password" required />
+            </div>
+            <small class="error" id="newPasswordError"></small>
+          </label>
+          <label>
+            Confirm new password
+            <div class="input-wrap">
+              <span class="input-icon">●</span>
+              <input id="confirmPassword" type="password" minlength="6" placeholder="Repeat the password" autocomplete="new-password" required />
+            </div>
+            <small class="error" id="confirmPasswordError"></small>
+          </label>
+          <button type="submit" class="primary-btn auth-btn" id="resetSubmit">
+            <span>Save new password</span>
+            <span>→</span>
+          </button>
+          <p class="auth-note"><button type="button" class="text-btn" id="cancelReset">Back to sign in</button></p>
+        </form>
+
+        <p class="auth-note auth-switch" id="authSwitch">
+          <span id="authSwitchText">New to Trichy Estates?</span>
+          <button type="button" class="text-btn" id="authSwitchButton">Create an account</button>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Real Estate App -->
+  <main id="app" class="app hidden">
+    <header class="site-header">
+      <div class="container nav">
+        <a href="#" class="brand" id="homeBrand">
+          <div class="brand-mark">TE</div>
+          <div>
+            <strong>Trichy Estates</strong>
+            <span>Premium Real Estate</span>
+          </div>
+        </a>
+
+        <nav class="desktop-nav">
+          <a href="#properties">Properties</a>
+          <a href="#areas">Popular Areas</a>
+          <a href="#about">Why Us</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="ghost-btn user-chip" id="userChip" title="Signed in user">DR</button>
+          <button class="cart-btn" id="cartButton">
+            <span>Cart</span>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <button class="menu-btn" id="menuButton" aria-label="Open menu">☰</button>
+        </div>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#properties">Properties</a>
+        <a href="#areas">Popular Areas</a>
+        <a href="#about">Why Us</a>
+        <a href="#contact">Contact</a>
+        <button id="logoutButtonMobile">Sign out</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="container hero-content">
+        <span class="eyebrow light">CURATED HOMES IN TIRUCHIRAPPALLI</span>
+        <h1>Property search,<br><em>beautifully simplified.</em></h1>
+        <p>Explore premium apartments, independent houses and modern flats across Trichy's most desirable neighborhoods.</p>
+
+        <div class="hero-search">
+          <div class="search-field">
+            <span>⌖</span>
+            <div>
+              <small>LOCATION</small>
+              <strong>Trichy, Tamil Nadu</strong>
+            </div>
+          </div>
+          <div class="search-field">
+            <span>⌂</span>
+            <div>
+              <small>PROPERTY TYPE</small>
+              <strong id="searchType">All Properties</strong>
+            </div>
+          </div>
+          <button class="primary-btn" id="exploreButton">Explore Properties</button>
+        </div>
+
+        <div class="hero-points">
+          <span>✓ Verified-style listings</span>
+          <span>✓ Transparent pricing</span>
+          <span>✓ Direct buyer support</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-strip">
+      <div class="container stats-grid">
+        <div><strong>30</strong><span>Premium Listings</span></div>
+        <div><strong>3</strong><span>Property Types</span></div>
+        <div><strong>10+</strong><span>Trichy Localities</span></div>
+        <div><strong>100%</strong><span>Responsive Experience</span></div>
+      </div>
+    </section>
+
+    <section class="properties-section" id="properties">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">EXPLORE COLLECTIONS</span>
+            <h2>Homes chosen for modern living.</h2>
+          </div>
+          <p>Browse 30 handpicked-style listings across apartments, independent houses and flats in Trichy.</p>
+        </div>
+
+        <div class="category-tabs" role="tablist">
+          <button class="category-tab active" data-category="all">All Properties <span>30</span></button>
+          <button class="category-tab" data-category="apartment">Apartments <span>10</span></button>
+          <button class="category-tab" data-category="house">Houses <span>10</span></button>
+          <button class="category-tab" data-category="flat">Flats <span>10</span></button>
+        </div>
+
+        <div class="filter-bar">
+          <div class="result-count"><strong id="resultCount">30</strong> properties available</div>
+          <select id="sortSelect" aria-label="Sort properties">
+            <option value="featured">Sort: Featured</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+            <option value="area">Area: Largest First</option>
+          </select>
+        </div>
+
+        <div class="property-grid" id="propertyGrid"></div>
+      </div>
+    </section>
+
+    <section class="areas-section" id="areas">
+      <div class="container">
+        <div class="section-heading compact">
+          <div>
+            <span class="eyebrow">POPULAR IN TRICHY</span>
+            <h2>Neighborhoods worth knowing.</h2>
+          </div>
+        </div>
+
+        <div class="area-grid">
+          <article><span>01</span><h3>Thillai Nagar</h3><p>Central, connected and ideal for urban living.</p></article>
+          <article><span>02</span><h3>Cantonment</h3><p>Premium city access with established surroundings.</p></article>
+          <article><span>03</span><h3>Srirangam</h3><p>Peaceful residential pockets near iconic landmarks.</p></article>
+          <article><span>04</span><h3>KK Nagar</h3><p>Family-friendly streets with strong daily conveniences.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="container about-grid">
+        <div class="about-card visual-card">
+          <div class="visual-badge">TRICHY ESTATES</div>
+          <div class="visual-copy">
+            <span>Local expertise.</span>
+            <strong>Modern experience.</strong>
+          </div>
+        </div>
+
+        <div class="about-copy">
+          <span class="eyebrow">WHY CHOOSE US</span>
+          <h2>Property discovery without the usual clutter.</h2>
+          <p>Trichy Estates is designed as a clean, buyer-first experience. Compare properties, save the ones you like, review your cart, and connect when you're ready to buy.</p>
+          <div class="feature-list">
+            <div><b>01</b><span><strong>Curated discovery</strong><small>Focused listings across key Trichy areas.</small></span></div>
+            <div><b>02</b><span><strong>Simple cart flow</strong><small>Shortlist multiple properties before buying.</small></span></div>
+            <div><b>03</b><span><strong>Direct contact</strong><small>Call or WhatsApp from the purchase screen.</small></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-card">
+        <div>
+          <span class="eyebrow light">READY TO FIND YOUR HOME?</span>
+          <h2>Speak with our Trichy property desk.</h2>
+          <p>Have a listing in mind? Add it to your cart and contact us to continue the purchase process.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="light-btn" href="tel:+919876543210" data-contact="call" data-prefix="Call ">Call +91 98765 43210</a>
+          <a class="outline-light-btn" href="https://wa.me/919876543210" target="_blank" rel="noopener" data-contact="whatsapp">WhatsApp us</a>
+        </div>
+      </div>
+      <p class="demo-contact-note">Demo contact number shown for this sample project. Replace it with your actual business number before publishing.</p>
+    </section>
+
+    <footer>
+      <div class="container footer-grid">
+        <div class="brand footer-brand">
+          <div class="brand-mark">TE</div>
+          <div><strong>Trichy Estates</strong><span>Premium Real Estate</span></div>
+        </div>
+        <p>© <span id="year"></span> Trichy Estates. Demo real-estate front-end project.</p>
+        <button class="text-btn footer-logout" id="logoutButton">Sign out</button>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Cart Drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div>
+        <span class="eyebrow">YOUR SHORTLIST</span>
+        <h2>Property Cart</h2>
+      </div>
+      <button class="close-btn" id="closeCart" aria-label="Close cart">×</button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="drawer-footer">
+      <div class="cart-summary">
+        <span>Selected properties</span>
+        <strong id="cartSummaryCount">0</strong>
+      </div>
+      <button class="primary-btn full-btn" id="buyButton">Buy / Contact Seller</button>
+      <div class="seller-contact">
+        <small>Property desk</small>
+        <a href="tel:+919876543210" data-contact="call">+91 98765 43210</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Buy Modal -->
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="buy-modal" id="buyModal" role="dialog" aria-modal="true" aria-labelledby="buyModalTitle">
+    <button class="close-btn modal-close" id="closeBuyModal" aria-label="Close">×</button>
+    <div class="modal-icon">⌂</div>
+    <span class="eyebrow">PURCHASE ENQUIRY</span>
+    <h2 id="buyModalTitle">Your enquiry has been sent.</h2>
+    <p id="buyModalText">Contact our property desk to confirm availability, schedule a visit and continue the purchase process.</p>
+
+    <div class="modal-contact">
+      <small>CONTACT NUMBER</small>
+      <a href="tel:+919876543210" data-contact="call">+91 98765 43210</a>
+    </div>
+
+    <div class="modal-actions">
+      <a class="primary-btn" href="tel:+919876543210" data-contact="call" data-keep-text>Call now</a>
+      <a class="secondary-btn" id="whatsappButton" href="https://wa.me/919876543210" target="_blank" rel="noopener" data-contact="whatsapp" data-keep-text>WhatsApp</a>
+    </div>
+    <small class="demo-label">Demo number — replace before production use.</small>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="config.js"></script>
+  <script src="api.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
